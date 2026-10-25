@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paperglaze Calligraphy</title>
+<meta name="description" content="Paperglaze Calligraphy by Shannan Inman. Pointed pen calligraphy for weddings, custom invitations, addressing, signage, Bella Scriptura scripture prints, and classes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#211c17;
+    --ink-soft:#50463c;
+    --cream:#faf6ef;
+    --cream-2:#f2eadd;
+    --paper:#fffdf9;
+    --gold:#a8864e;
+    --gold-soft:#c9a86a;
+    --line:rgba(33,28,23,0.14);
+    --line-soft:rgba(33,28,23,0.08);
+    --shadow:0 18px 50px rgba(33,28,23,0.10);
+    --maxw:1140px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Jost',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    font-weight:300;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.15;color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  section{scroll-margin-top:84px}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .script{font-family:'Pinyon Script',cursive;color:var(--gold);font-weight:400}
+
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--gold);font-weight:500;margin-bottom:14px;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,246,239,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand .mark{font-family:'Pinyon Script',cursive;font-size:2rem;color:var(--ink)}
+  .brand .sub{font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-top:2px}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{
+    font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-soft);transition:color .2s;position:relative;
+  }
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;
+    background:var(--gold);transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{
+    border:1px solid var(--ink);padding:9px 20px;border-radius:999px;
+    font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);
+    transition:all .25s;
+  }
+  .nav-cta:hover{background:var(--ink);color:var(--cream)}
+  .nav-cta::after{display:none}
+  .menu-toggle{display:none;background:none;border:0;font-size:1.6rem;color:var(--ink);cursor:pointer;line-height:1}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:110px 0 120px;overflow:hidden;background:var(--cream)}
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(circle at 78% 18%, rgba(168,134,78,0.10), transparent 42%),
+      radial-gradient(circle at 12% 85%, rgba(168,134,78,0.07), transparent 40%);
+  }
+  .hero-inner{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 28px;text-align:center}
+  .hero .flourish{font-family:'Pinyon Script',cursive;font-size:clamp(2rem,5vw,3.2rem);color:var(--gold);margin-bottom:6px}
+  .hero h1{font-size:clamp(3rem,8.5vw,6rem);font-weight:500;letter-spacing:.01em}
+  .hero .lede{
+    max-width:640px;margin:26px auto 0;font-size:1.12rem;color:var(--ink-soft);font-weight:300;
+  }
+  .hero-actions{margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+  .btn{
+    display:inline-block;padding:14px 30px;border-radius:999px;
+    font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:400;
+    transition:all .25s;cursor:pointer;border:1px solid var(--ink);
+  }
+  .btn-solid{background:var(--ink);color:var(--cream)}
+  .btn-solid:hover{background:transparent;color:var(--ink)}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--cream)}
+  .btn-gold{border-color:var(--gold);background:var(--gold);color:#fff}
+  .btn-gold:hover{background:transparent;color:var(--gold)}
+
+  .hero-meta{
+    margin-top:56px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap;
+    padding-top:34px;border-top:1px solid var(--line-soft);max-width:720px;margin-left:auto;margin-right:auto;
+  }
+  .hero-meta .stat{text-align:center}
+  .hero-meta .num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--ink);line-height:1}
+  .hero-meta .cap{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
+
+  /* ---------- SECTION FRAME ---------- */
+  .section{padding:96px 0}
+  .section.alt{background:var(--cream-2)}
+  .section-head{text-align:center;max-width:680px;margin:0 auto 60px}
+  .section-head h2{font-size:clamp(2.2rem,4.5vw,3.1rem)}
+  .section-head p{margin-top:16px;color:var(--ink-soft);font-size:1.05rem}
+  .rule{width:58px;height:1px;background:var(--gold);margin:20px auto 0}
+
+  /* ---------- ABOUT ---------- */
+  .about{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+  .about .panel{
+    background:var(--paper);border:1px solid var(--line);padding:46px 44px;border-radius:4px;box-shadow:var(--shadow);position:relative;
+  }
+  .about .panel::before{
+    content:"P";position:absolute;top:-28px;left:34px;font-family:'Pinyon Script',cursive;
+    font-size:4rem;color:var(--gold);line-height:1;
+  }
+  .about h2{font-size:clamp(2rem,4vw,2.7rem);margin-bottom:8px}
+  .about p{color:var(--ink-soft);margin-top:18px}
+  .signoff{font-family:'Pinyon Script',cursive;font-size:2.1rem;color:var(--ink);margin-top:24px}
+
+  /* ---------- OFFERINGS ---------- */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:38px 32px;
+    transition:transform .3s ease, box-shadow .3s ease;position:relative;overflow:hidden;
+  }
+  .card::after{
+    content:"";position:absolute;left:0;top:0;height:3px;width:100%;
+    background:linear-gradient(90deg,var(--gold),var(--gold-soft));
+    transform:scaleX(0);transform-origin:left;transition:transform .3s ease;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .card:hover::after{transform:scaleX(1)}
+  .card .kicker{font-family:'Pinyon Script',cursive;font-size:1.9rem;color:var(--gold);margin-bottom:6px}
+  .card h3{font-size:1.5rem;margin-bottom:12px}
+  .card p{color:var(--ink-soft);font-size:.98rem}
+  .card ul{list-style:none;margin-top:14px}
+  .card ul li{position:relative;padding-left:20px;color:var(--ink-soft);font-size:.92rem;margin-top:6px}
+  .card ul li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:1px;background:var(--gold)}
+
+  /* ---------- PRINTS / SHOP ---------- */
+  .prints{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .prints .copy h2{font-size:clamp(2rem,4vw,2.8rem)}
+  .prints .copy p{color:var(--ink-soft);margin-top:18px}
+  .promo{
+    margin-top:28px;display:inline-flex;align-items:center;gap:16px;flex-wrap:wrap;
+    background:var(--cream);border:1px dashed var(--gold);padding:16px 22px;border-radius:4px;
+  }
+  .promo .code{font-family:'Cormorant Garamond',serif;font-size:1.5rem;letter-spacing:.14em;color:var(--ink);font-weight:600}
+  .promo .pct{font-size:.84rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .frame{
+    aspect-ratio:4/5;border:1px solid var(--line);background:var(--paper);
+    display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;
+    position:relative;overflow:hidden;
+  }
+  .frame::before{content:"";position:absolute;inset:10px;border:1px solid var(--line-soft)}
+  .frame .verse{font-family:'Pinyon Script',cursive;font-size:1.5rem;color:var(--gold);z-index:1;text-align:center;padding:0 10px}
+  .frame .size{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);z-index:1}
+
+  /* ---------- CLASSES ---------- */
+  .classes-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .classes .copy h2{font-size:clamp(2rem,4vw,2.8rem)}
+  .classes .copy p{color:var(--ink-soft);margin-top:18px}
+  .class-stats{display:flex;gap:40px;margin-top:30px;flex-wrap:wrap}
+  .class-stats .s .n{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold);line-height:1}
+  .class-stats .s .l{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px}
+  .class-card{
+    background:var(--ink);color:var(--cream);padding:46px 40px;border-radius:4px;box-shadow:var(--shadow);
+  }
+  .class-card .eyebrow{color:var(--gold-soft)}
+  .class-card h3{color:var(--cream);font-size:1.9rem;margin-bottom:14px}
+  .class-card p{color:rgba(250,246,239,0.78);font-size:.98rem}
+  .class-card .btn-gold{margin-top:26px}
+
+  /* ---------- RESOURCES (replaces Files coming soon) ---------- */
+  .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .res{
+    background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:34px 30px;
+    display:flex;flex-direction:column;transition:border-color .25s, transform .3s;
+  }
+  .res:hover{border-color:var(--gold);transform:translateY(-4px)}
+  .res .ico{
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+    font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);
+  }
+  .res h3{font-size:1.35rem;margin-bottom:10px}
+  .res p{color:var(--ink-soft);font-size:.95rem;flex:1}
+  .res .go{
+    margin-top:18px;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .res .go span{transition:transform .25s}
+  .res:hover .go span{transform:translateX(5px)}
+
+  /* ---------- ACCOLADES ---------- */
+  .accolades{text-align:center}
+  .acc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:20px;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+  .acc{padding:44px 30px;border-right:1px solid var(--line);background:var(--paper)}
+  .acc:last-child{border-right:0}
+  .acc .yr{font-family:'Pinyon Script',cursive;font-size:1.9rem;color:var(--gold);margin-bottom:8px}
+  .acc h3{font-size:1.3rem;margin-bottom:8px}
+  .acc p{color:var(--ink-soft);font-size:.92rem}
+
+  /* ---------- CONTACT ---------- */
+  .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .contact .copy .script{font-size:2.6rem;display:block;margin-bottom:6px}
+  .contact .copy h2{font-size:clamp(2rem,4vw,2.7rem)}
+  .contact .copy p{color:var(--ink-soft);margin-top:18px}
+  .contact-list{margin-top:30px;display:flex;flex-direction:column;gap:2px}
+  .contact-list a,.contact-list span{
+    display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line-soft);
+    color:var(--ink);font-size:1rem;transition:color .2s;
+  }
+  .contact-list a:hover{color:var(--gold)}
+  .contact-list .lbl{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);min-width:84px}
+  .socials{margin-top:24px;display:flex;gap:14px}
+  .socials a{
+    width:42px;height:42px;border:1px solid var(--line);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:.72rem;letter-spacing:.06em;
+    color:var(--ink-soft);transition:all .25s;text-transform:uppercase;
+  }
+  .socials a:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+
+  form{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:40px 36px;box-shadow:var(--shadow)}
+  form h3{font-size:1.6rem;margin-bottom:6px}
+  form .fine{font-size:.86rem;color:var(--ink-soft);margin-bottom:24px}
+  .field{margin-bottom:20px}
+  .field label{display:block;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+  .field input,.field textarea{
+    width:100%;background:var(--cream);border:1px solid var(--line);border-radius:3px;
+    padding:13px 15px;font-family:inherit;font-size:1rem;color:var(--ink);font-weight:300;transition:border-color .2s;
+  }
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+  .field textarea{resize:vertical;min-height:120px}
+  form button{width:100%;border:0;cursor:pointer}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:var(--cream);padding:70px 0 32px;text-align:center}
+  footer .fmark{font-family:'Pinyon Script',cursive;font-size:3rem;color:var(--cream)}
+  footer .fsub{font-size:.66rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-soft);margin-top:4px}
+  footer .fnav{margin:30px 0;display:flex;gap:28px;justify-content:center;flex-wrap:wrap}
+  footer .fnav a{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,246,239,0.72);transition:color .2s}
+  footer .fnav a:hover{color:var(--cream)}
+  footer .fline{max-width:420px;margin:0 auto 24px;height:1px;background:rgba(250,246,239,0.14)}
+  footer .copy{font-size:.8rem;color:rgba(250,246,239,0.55);letter-spacing:.04em}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:900px){
+    .nav-links{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      background:var(--cream);flex-direction:column;gap:0;padding:10px 0;border-bottom:1px solid var(--line);
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{padding:14px 28px;width:100%;letter-spacing:.14em}
+    .nav-links a::after{display:none}
+    .nav-cta{margin:12px 28px;text-align:center}
+    .menu-toggle{display:block}
+    .about,.prints,.classes-inner,.contact-inner{grid-template-columns:1fr;gap:40px}
+    .grid-3,.res-grid{grid-template-columns:1fr 1fr}
+    .acc-grid{grid-template-columns:1fr}
+    .acc{border-right:0;border-bottom:1px solid var(--line)}
+    .acc:last-child{border-bottom:0}
+  }
+  @media(max-width:620px){
+    .wrap{padding:0 20px}
+    .section{padding:70px 0}
+    .hero{padding:72px 0 80px}
+    .grid-3,.res-grid,.gallery{grid-template-columns:1fr}
+    .hero-meta{gap:30px}
+    .about .panel{padding:38px 28px}
+    form{padding:32px 24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ======== PUBLIC NAV (no admin / no sign-in state) ======== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Paperglaze home">
+      <span class="mark">Paperglaze</span>
+      <span class="sub">Calligraphy</span>
+    </a>
+    <nav class="nav-links" id="menu">
+      <a href="#work">Work</a>
+      <a href="#prints">Prints</a>
+      <a href="#classes">Classes</a>
+      <a href="#resources">Resources</a>
+      <a href="#accolades">Featured</a>
+      <a class="nav-cta" href="#contact">Get in Touch</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Open menu" onclick="document.getElementById('menu').classList.toggle('open')">&#9776;</button>
+  </div>
+</header>
+
+<!-- ======== HERO ======== -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <p class="flourish">Pointed pen, by hand</p>
+    <h1>Paperglaze</h1>
+    <p class="lede">Custom calligraphy by Shannan Inman. Wedding invitations, hand addressing, bespoke signage, and scripture prints, all drawn in one of a kind styles with pointed pen and ink.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#work">View the Work</a>
+      <a class="btn btn-ghost" href="#prints">Shop the Prints</a>
+    </div>
+    <div class="hero-meta">
+      <div class="stat"><div class="num">20</div><div class="cap">Years Lettering</div></div>
+      <div class="stat"><div class="num">50+</div><div class="cap">Scripture Designs</div></div>
+      <div class="stat"><div class="num">7</div><div class="cap">States Taught</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== ABOUT ======== -->
+<section class="section" id="about">
+  <div class="wrap about">
+    <div class="copy">
+      <p class="eyebrow">Welcome</p>
+      <h2>A steady hand, twenty years in the making.</h2>
+      <p>Shannan Inman has been in the calligraphy business for twenty years. Every piece that leaves the studio is drawn by hand with a pointed pen, which means no two are ever quite the same.</p>
+      <p>From the first ink test to the final flourish, the goal is simple. Lettering that feels personal, looks timeless, and suits the moment it was made for.</p>
+      <a class="btn btn-ghost" href="#contact" style="margin-top:28px">Start a Project</a>
+    </div>
+    <div class="panel">
+      <h2>One of a kind, every time.</h2>
+      <p>Pointed pen calligraphy is slow work on purpose. The pressure of the nib, the angle of the hand, and the choice of ink all shape a style that cannot be copied and pasted.</p>
+      <p>That is what makes a Paperglaze suite yours alone, whether it is a wedding invitation, a welcome sign, or a single framed verse.</p>
+      <p class="signoff">Shannan</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== WORK / OFFERINGS ======== -->
+<section class="section alt" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What I Offer</p>
+      <h2>Calligraphy for the days that matter</h2>
+      <p>Full service lettering for weddings and events, plus everything in between.</p>
+      <div class="rule"></div>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="kicker">Invitations</div>
+        <h3>Invitation Design</h3>
+        <p>Working alongside area stationers and printers to build a complete calligraphy suite from save the dates to the day itself.</p>
+        <ul>
+          <li>Full calligraphy suites</li>
+          <li>Spot calligraphy for budget conscious couples</li>
+          <li>Names and venue lettered, the rest typeset</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="kicker">Addressing</div>
+        <h3>Envelope Addressing</h3>
+        <p>Hand addressed envelopes that greet every guest by name, with the correct titles and formatting throughout.</p>
+        <ul>
+          <li>Inner and outer envelopes</li>
+          <li>Correct guest titles and etiquette</li>
+          <li>Matched to your invitation style</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="kicker">Signage</div>
+        <h3>Bespoke Signage</h3>
+        <p>Statement pieces for the event, lettered on the surface that fits the space and the style.</p>
+        <ul>
+          <li>Welcome signs, seating charts, guest books</li>
+          <li>Bar signs, favors signs, send off signs</li>
+          <li>Acrylic, wood, mirror, chalkboard, or fabric</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== PRINTS / SHOP (Bella Scriptura) ======== -->
+<section class="section" id="prints">
+  <div class="wrap prints">
+    <div class="copy">
+      <p class="eyebrow">Bella Scriptura</p>
+      <h2>Scripture prints, drawn by hand</h2>
+      <p>The Bella Scriptura collection holds more than fifty different Old and New Testament verses, each hand drawn with pointed pen and ink, then printed on fine art, natural, acid free paper.</p>
+      <p>Prints are black and white and come mostly in 4 by 6 and 5 by 7, with a few 8 by 10 sizes. They are sold through the Paperglaze Etsy shop.</p>
+      <div class="promo">
+        <span class="pct">20% off Bella Scriptura Prints</span>
+        <span class="code">WEBSITE20</span>
+      </div>
+      <div style="margin-top:28px">
+        <a class="btn btn-gold" href="http://etsy.com/shop/paperglaze" target="_blank" rel="noopener">Shop on Etsy</a>
+      </div>
+    </div>
+    <div class="gallery" aria-hidden="true">
+      <div class="frame"><div class="verse">Grace</div><div class="size">5 x 7</div></div>
+      <div class="frame"><div class="verse">Be Still</div><div class="size">4 x 6</div></div>
+      <div class="frame"><div class="verse">Hope</div><div class="size">8 x 10</div></div>
+      <div class="frame"><div class="verse">Rejoice</div><div class="size">4 x 6</div></div>
+      <div class="frame"><div class="verse">Faith</div><div class="size">5 x 7</div></div>
+      <div class="frame"><div class="verse">Beloved</div><div class="size">4 x 6</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CLASSES ======== -->
+<section class="section alt classes" id="classes">
+  <div class="wrap classes-inner">
+    <div class="copy">
+      <p class="eyebrow">Learn Calligraphy</p>
+      <h2>Find your own hand</h2>
+      <p>Paperglaze has been teaching calligraphy since 2014, to hundreds of students across seven different states. Classes are warm, patient, and built for real beginners as much as for the already hooked.</p>
+      <p>Private home parties are also available, a relaxed way to gather friends around pen, ink, and a glass of something nice.</p>
+      <div class="class-stats">
+        <div class="s"><div class="n">2014</div><div class="l">Teaching Since</div></div>
+        <div class="s"><div class="n">100s</div><div class="l">Students Taught</div></div>
+        <div class="s"><div class="n">7</div><div class="l">States Reached</div></div>
+      </div>
+    </div>
+    <div class="class-card">
+      <p class="eyebrow">Workshops &amp; Parties</p>
+      <h3>Lettering, from the first stroke</h3>
+      <p>Group workshops and private home parties cover the fundamentals of pointed pen, the feel of pressure and release, and the first words you will letter by hand. All materials guided, all levels welcome.</p>
+      <a class="btn btn-gold" href="#contact">Ask About Dates</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== RESOURCES (replaces "Files coming soon") ======== -->
+<section class="section" id="resources">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Resources</p>
+      <h2>Everything in one place</h2>
+      <p>The quickest ways to shop, book, and get in touch with the studio.</p>
+      <div class="rule"></div>
+    </div>
+    <div class="res-grid">
+      <a class="res" href="http://etsy.com/shop/paperglaze" target="_blank" rel="noopener">
+        <div class="ico">E</div>
+        <h3>The Etsy Shop</h3>
+        <p>Browse and buy the full Bella Scriptura scripture print collection, with sizes from 4 by 6 up to 8 by 10. Use code WEBSITE20 for 20% off.</p>
+        <span class="go">Visit the shop <span>&rarr;</span></span>
+      </a>
+      <a class="res" href="#contact">
+        <div class="ico">Q</div>
+        <h3>Request a Quote</h3>
+        <p>Share the details of your wedding or event and receive a tailored quote for invitations, addressing, or signage.</p>
+        <span class="go">Start an inquiry <span>&rarr;</span></span>
+      </a>
+      <a class="res" href="#classes">
+        <div class="ico">C</div>
+        <h3>Class Information</h3>
+        <p>Learn about group workshops and private home parties, and ask about upcoming dates in your area.</p>
+        <span class="go">See the classes <span>&rarr;</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== ACCOLADES ======== -->
+<section class="section alt accolades" id="accolades">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Featured</p>
+      <h2>Work that has traveled</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="acc-grid">
+      <div class="acc">
+        <div class="yr">2022</div>
+        <h3>Magnolia Journal</h3>
+        <p>Featured in Joanna Gaines' Magnolia Journal, Summer 2022 issue.</p>
+      </div>
+      <div class="acc">
+        <div class="yr">Arkansas</div>
+        <h3>Inauguration Invitation</h3>
+        <p>Designed the inauguration invitation for Arkansas governor elect Sarah Huckabee Sanders.</p>
+      </div>
+      <div class="acc">
+        <div class="yr">2023</div>
+        <h3>Mardi Gras Queen</h3>
+        <p>Official calligrapher for the Washington, D.C. Mardi Gras Queen, 2023.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CONTACT ======== -->
+<section class="section contact" id="contact">
+  <div class="wrap contact-inner">
+    <div class="copy">
+      <span class="script">To the Letter</span>
+      <h2>Let's talk about your project</h2>
+      <p>Tell me a little about what you have in mind, whether it is a wedding suite, a run of addressed envelopes, a sign, or a class, and I will be in touch.</p>
+      <div class="contact-list">
+        <a href="mailto:shannan@paperglaze.com"><span class="lbl">Email</span>shannan@paperglaze.com</a>
+        <a href="tel:3189141116"><span class="lbl">Phone</span>318-914-1116</a>
+        <a href="http://etsy.com/shop/paperglaze" target="_blank" rel="noopener"><span class="lbl">Shop</span>etsy.com/shop/paperglaze</a>
+      </div>
+      <div class="socials">
+        <a href="https://www.instagram.com/paperglazecalligraphy" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a href="https://www.facebook.com/197794180261409" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+    <form action="mailto:shannan@paperglaze.com" method="post" enctype="text/plain">
+      <h3>Send a message</h3>
+      <p class="fine">Fields marked required help me reply quickly.</p>
+      <div class="field">
+        <label for="name">Name (required)</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email (required)</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="field">
+        <label for="message">Your message</label>
+        <textarea id="message" name="message" placeholder="Tell me about your event, date, and what you are looking for."></textarea>
+      </div>
+      <button type="submit" class="btn btn-solid">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer>
+  <div class="wrap">
+    <div class="fmark">Paperglaze</div>
+    <div class="fsub">Calligraphy by Shannan Inman</div>
+    <nav class="fnav">
+      <a href="#work">Work</a>
+      <a href="#prints">Prints</a>
+      <a href="#classes">Classes</a>
+      <a href="#resources">Resources</a>
+      <a href="#accolades">Featured</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="fline"></div>
+    <p class="copy">Copyright 2024 Paperglaze. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Close the mobile menu after a link is tapped.
+  document.querySelectorAll('#menu a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.getElementById('menu').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
